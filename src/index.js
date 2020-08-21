@@ -76,34 +76,104 @@ const steps = [
     id:"ppc-link",
     component: (<div>Clique no link para acessar o <a href="http://bict.ufma.br/wp-content/uploads/2017/11/PPC_BICT.pdf" target="_blank" style={{ color: '#FFF'}}>PPC do curso</a></div>),
     asMessage: true,
-    end: true,
+    trigger: "mais-ajuda",
   },
   {
     id:"atividades-complementares-link",
     component: (<div>Clique no link para acessar as <a href="http://bict.ufma.br/wp-content/uploads/2019/11/NORMAS-2019.pdf" target="_blank" style={{ color: '#FFF'}}>Atividades complementares</a></div>),
     asMessage: true,
-    end: true,
+    trigger: "mais-ajuda",
   },
   {
     id:"quadro-aproveitamento-link",
     component: (<div>Clique no link para acessar o <a href="http://bict.ufma.br/wp-content/uploads/2019/08/QUADRO-DE-EQUIVAL%C3%8ANCIA-P-APROVEITAMENTOS-2019-15-08-2019.pdf" target="_blank" style={{ color: '#FFF'}}>Quadro de aproveitamento</a></div>),
     asMessage: true,
+    trigger: "mais-ajuda",
+  },
+  {
+    id:"mais-ajuda",
+    message:"Posso ajudar em mais alguma coisa?",
+    trigger:"mais-ajuda-opcao",
+  },
+  {
+    id:"mais-ajuda-opcao",
+    options: [
+      { value:"mais-ajuda-opcao-sim", label:"Sim", trigger:"oferece-ajuda" },
+      { value:"mais-ajuda-nao", label:"Não", trigger:"avaliacao" },
+    ],
+  },
+  {
+    id:"avaliacao",
+    message: "Eu sou um membro em treinamento, poderia avaliar meu atendimento?",
+    trigger:"avaliacao-opcoes",
+  },
+  {
+    id:"avaliacao-opcoes",
+    options: [
+      { value:"avaliacao-opcoes-sim", label:"Sim", trigger:"avaliacao-formulario"}, 
+      { value:"avaliacao-opcoes-nao", label:"Não", trigger:"agradecimentos"}
+    ],
+  },
+  {
+    id:"avaliacao-formulario",
+    message: "Preencha este formulario, por favor!", // Colocar formulário de satisfação
+    trigger:"agradecimentos"
+  },
+  {
+    id:"agradecimentos",
+    message:"Foi uma honra te ajudar! Sempre estarei disponível para tirar suas dúvidas. ;)",
     end: true,
   },
   {
-    id:"duvidas-frequentes",
+    id:"duvidas-frequentes", // Ramo Dúvidas Frequentes
     message:"Escolha uma opção.",
     end: true,
   },
   {
-    id:"contatos-coordenacao",
+    id:"contatos-coordenacao", // Ramo Contatos Coordenação
     message:"Estes são os meios de contato com a Coordenação.",
     end: true,
   },
   {
     id:"nenhuma-opcao",
     message: "Sinto muito, não possuo a informação que procura. >_<", // Colocar emojis
-    end: true,
+    trigger:"informar-duvida",
+  },
+  {
+    id:"informar-duvida",
+    message:"Para que eu possa te ajudar da próxima vez, pode me informar qual é sua dúvida?",
+    trigger: "informar-duvida-opcoes",
+  },
+  {
+    id:"informar-duvida-opcoes",
+    options: [
+      { value:"informar-duvida-sim", label:"Sim, posso.", trigger: "esclarecer-duvida" },
+      { value:"informar-duvida-nao", label:"Não quero", trigger: "desculpa"},
+    ],
+  },
+  {
+    id:"esclarecer-duvida",
+    message:"Por favor, diga sua dúvida.", // Como salvar a dúvida?
+    trigger:"contato-ca",
+  },
+  {
+    id:"desculpa",
+    message:"Sinto muito em não poder ajudar. :(",
+    trigger:"contato-ca",
+  },
+  {
+    id:"contato-ca",
+    message:"Para compensar, aqui estão os meios de entrar em contato com CA. Selecione uma opção.",
+    trigger: "contato-ca-opcoes",
+  },
+  {
+    id:"contato-ca-opcoes",
+    options: [
+      { value:"email", label: "E-mail", trigger:"avaliacao" }, //Colocar link e icone do email
+      { value:"instagram", label:"Instagram", trigger:"avaliacao" }, // Colocar link e icone do intagram
+      { value:"twitter", label:"Twitter", trigger:"avaliacao"}, // Colocar link e icone do twetter
+      { value:"whatsapp", label: "WhatsApp", trigger:"avaliacao"} // Colocar icone e contatos do membros
+    ],
   },
 ];
 
