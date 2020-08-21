@@ -49,9 +49,9 @@ $ yarn start
 http://localhost:3333/
 ```
 ## Funcionalidades
-- [] Criação do escopo
-- [] Reconhecimento de voz
-- [] Compatibilidade com recursos de voz
+- [ ] Criação do escopo
+- [ ] Reconhecimento de voz
+- [ ] Compatibilidade com recursos de voz
 
 ## Autora
 [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/3salles)](https://github.com/3salles)
