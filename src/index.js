@@ -20,6 +20,12 @@ const steps = [
   {
     id:"nome",  // Validação de nome
     user:true, // Nome.capitalize()
+    validator: (value) => {
+      var name = /^((\b[A-zÀ-ú']{1,40}\b))$/;
+      let nome_invalido = 'Digite um nome válido, por favor.';
+      name.test(value);
+      return name.test(value) ? true : nome_invalido;
+    },
     trigger:"saudacao",
   },
   {
