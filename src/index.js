@@ -18,15 +18,16 @@ const steps = [
     trigger:"nome",
   },
   {
-    id:"nome",  // Validação de nome
+    id:"nome", 
     user:true, // Nome.capitalize()
     validator: (value) => {
+      var usuarioNome = value;
       var name = /^((\b[A-zÀ-ú']{1,40}\b))$/;
-      let nome_invalido = 'Digite um nome válido, por favor.';
-      name.test(value);
-      return name.test(value) ? true : nome_invalido;
+      let nomeInvalido= 'Digite um nome válido, por favor.';
+      name.test(usuarioNome);      
+      return name.test(usuarioNome) ? true : nomeInvalido;
     },
-    trigger:"saudacao",
+    trigger: "saudacao",    
   },
   {
     id:"saudacao",
